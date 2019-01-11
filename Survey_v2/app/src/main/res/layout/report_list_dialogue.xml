@@ -1,0 +1,183 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:shimmer="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <RelativeLayout
+        android:id="@+id/placer"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:visibility="invisible"
+        app:layout_constraintBottom_toBottomOf="@+id/shimmer_view_container"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <View
+            android:id="@+id/thumbnail"
+            android:layout_width="@dimen/placeholder_image"
+            android:layout_height="@dimen/placeholder_image"
+            android:layout_marginRight="@dimen/activity_padding"
+            android:background="@drawable/circle" />
+
+        <View
+            android:id="@+id/name"
+            android:layout_width="150dp"
+            android:layout_height="10dp"
+            android:layout_marginBottom="10dp"
+            android:layout_toRightOf="@id/thumbnail"
+            android:background="@drawable/rounded_corner" />
+
+        <View
+            android:layout_width="100dp"
+            android:layout_height="@dimen/placeholder_text_height"
+            android:layout_below="@id/name"
+            android:layout_toRightOf="@id/thumbnail"
+            android:background="@drawable/rounded_corner" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/thumbnail"
+            android:layout_marginBottom="40dp"
+            android:layout_marginTop="20dp"
+            android:background="@drawable/rounded_corner"
+            android:orientation="vertical">
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/placeholder_text_height"
+                android:layout_marginRight="100dp"
+                android:background="@drawable/rounded_corner" />
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/placeholder_text_height"
+                android:layout_marginRight="50dp"
+                android:layout_marginTop="10dp"
+                android:background="@drawable/rounded_corner" />
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/placeholder_text_height"
+                android:layout_marginRight="160dp"
+                android:layout_marginTop="10dp"
+                android:background="@drawable/rounded_corner" />
+
+        </LinearLayout>
+
+    </RelativeLayout>
+
+    <android.support.constraint.ConstraintLayout
+        android:id="@+id/banner2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/colorPrimary"
+        android:padding="10dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/bar">
+
+        <TextView
+            android:id="@+id/textView21"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/bold"
+            android:paddingLeft="24dp"
+            android:paddingStart="24dp"
+            android:text="TRAFFIC REPORTS"
+            android:textColor="@color/colorPrimaryDarkTwo"
+            android:textSize="14dip"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <ImageButton
+            android:id="@+id/refreshButton"
+            android:layout_width="21dp"
+            android:layout_height="21dp"
+            android:layout_marginEnd="26dp"
+            android:background="@drawable/ic_refresh"
+            android:backgroundTint="@color/colorPrimaryDarkTwo"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.666" />
+
+    </android.support.constraint.ConstraintLayout>
+
+    <com.bitrider.survey.ActivityListener.Views.BoostedRecyclerView
+        android:id="@+id/survey_recycler_view"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginBottom="8dp"
+        android:background="@color/colorPrimary"
+        android:paddingTop="8dp"
+        android:visibility="visible"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.58"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/banner2"
+        app:layout_constraintVertical_bias="0.492"></com.bitrider.survey.ActivityListener.Views.BoostedRecyclerView>
+
+    <com.facebook.shimmer.ShimmerFrameLayout
+        android:id="@+id/shimmer_view_container"
+        android:layout_width="wrap_content"
+        android:layout_height="417dp"
+        android:layout_gravity="center"
+        android:background="@color/colorPrimary"
+        android:orientation="vertical"
+        android:visibility="visible"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/banner2"
+        shimmer:duration="500">
+
+        <!-- Adding 7 rows of placeholders -->
+        <LinearLayout
+            android:id="@+id/shimmer_layout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <include layout="@layout/placeholder" />
+
+            <include layout="@layout/placeholder" />
+
+            <include layout="@layout/placeholder" />
+
+            <include layout="@layout/placeholder" />
+
+            <include layout="@layout/placeholder" />
+
+            <include layout="@layout/placeholder" />
+
+            <include layout="@layout/placeholder" />
+        </LinearLayout>
+
+    </com.facebook.shimmer.ShimmerFrameLayout>
+
+    <android.support.constraint.ConstraintLayout
+        android:id="@+id/placer2"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_marginBottom="8dp"
+        android:visibility="invisible"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/banner2"
+        app:layout_constraintVertical_bias="0.0">
+
+        <include layout="@layout/empty_layout" />
+
+    </android.support.constraint.ConstraintLayout>
+
+</android.support.constraint.ConstraintLayout>

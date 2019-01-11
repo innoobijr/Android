@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:mapbox="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.bitrider.survey.SimpleOfflineMapActivity">
+
+    <com.mapbox.mapboxsdk.maps.MapView
+        android:id="@+id/mapView"
+        android:layout_width="match_parent"
+        android:layout_height="440dp"
+        android:layout_marginBottom="8dp"
+        android:layout_weight="2"
+        mapbox:layout_constraintBottom_toTopOf="@+id/banner2"
+        mapbox:layout_constraintEnd_toEndOf="parent"
+        mapbox:layout_constraintStart_toStartOf="parent"
+        mapbox:layout_constraintTop_toTopOf="parent"
+        mapbox:mapbox_cameraTargetLat="6.429046"
+        mapbox:mapbox_cameraTargetLng="3.424411"
+        mapbox:mapbox_cameraZoom="10"
+        mapbox:mapbox_cameraZoomMin="10"
+        mapbox:mapbox_styleUrl="mapbox://styles/nodetraffic/cjkfoujik0yf22rmwfb1px3lf" />
+
+    <ProgressBar
+        android:id="@+id/progress_bar"
+        style="?android:attr/progressBarStyleHorizontal"
+        android:layout_width="200dp"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_centerInParent="true"
+        android:layout_marginBottom="12dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:paddingLeft="25dp"
+        android:paddingRight="25dp"
+        android:visibility="gone"
+        mapbox:layout_constraintBottom_toBottomOf="@+id/mapView"
+        mapbox:layout_constraintEnd_toEndOf="@+id/mapView"
+        mapbox:layout_constraintStart_toStartOf="parent"
+        mapbox:layout_constraintTop_toTopOf="@+id/mapView" />
+
+    <android.support.constraint.ConstraintLayout
+        android:id="@+id/banner2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/coloYellow"
+        android:paddingBottom="10dp"
+        mapbox:layout_constraintBottom_toBottomOf="parent"
+        mapbox:layout_constraintEnd_toEndOf="parent"
+        mapbox:layout_constraintHorizontal_bias="0.0"
+        mapbox:layout_constraintStart_toStartOf="parent">
+
+        <TextView
+            android:id="@+id/textView21"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="4dp"
+            android:layout_marginTop="16dp"
+            android:fontFamily="@font/bold"
+            android:paddingLeft="24dp"
+            android:paddingStart="24dp"
+            android:text="SELECT AN ALERT:"
+            android:textColor="@color/colorPrimaryDark"
+            android:textSize="14dip"
+            mapbox:layout_constraintStart_toStartOf="parent"
+            mapbox:layout_constraintTop_toTopOf="parent" />
+
+        <Spinner
+            android:id="@+id/spinner"
+            android:layout_width="0dp"
+            android:layout_height="30dp"
+            android:layout_marginEnd="20dp"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="8dp"
+            android:background="@drawable/rounded_corner"
+            android:visibility="visible"
+            mapbox:layout_constraintBottom_toBottomOf="@+id/textView21"
+            mapbox:layout_constraintEnd_toEndOf="parent"
+            mapbox:layout_constraintHorizontal_bias="0.9"
+            mapbox:layout_constraintStart_toEndOf="@+id/textView21"
+            mapbox:layout_constraintTop_toTopOf="@+id/textView21" />
+
+        <EditText
+            android:id="@+id/description"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="13dp"
+            android:layout_marginEnd="12dp"
+            android:layout_marginStart="12dp"
+            android:layout_marginTop="8dp"
+            android:background="@drawable/rounded_corner"
+            android:scrollHorizontally="false"
+            android:ems="10"
+            android:imeOptions="actionDone|actionNext"
+            android:gravity="top|left"
+            android:hint="Add a description..."
+            android:inputType="textMultiLine"
+            android:lines="2"
+            android:paddingEnd="20dp"
+            android:paddingStart="20dp"
+            android:paddingTop="8dp"
+            android:singleLine="false"
+            android:textColorHint="#18000000"
+            android:textSize="14sp"
+            android:visibility="gone"
+            mapbox:layout_constraintBottom_toBottomOf="parent"
+            mapbox:layout_constraintEnd_toEndOf="parent"
+            mapbox:layout_constraintHorizontal_bias="0.0"
+            mapbox:layout_constraintStart_toStartOf="parent"
+            mapbox:layout_constraintTop_toBottomOf="@+id/spinner"
+            mapbox:layout_constraintVertical_bias="0.0" />
+
+    </android.support.constraint.ConstraintLayout>
+
+</android.support.constraint.ConstraintLayout>
