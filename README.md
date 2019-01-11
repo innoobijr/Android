@@ -1,2 +1,0 @@
-# bitrider
-# Android
