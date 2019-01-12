@@ -11,7 +11,8 @@ import com.obi.weatherapp.domain.model.Forecast
 import com.obi.weatherapp.domain.model.ForecastList
 import com.obi.weatherapp.ui.utils.ctx
 import com.squareup.picasso.Picasso
-import kotlinx.android.synthetic.main.item_forecast.view.*
+import kotlinx.android.extensions.LayoutContainer
+import kotlinx.android.synthetic.main.item_forecast.*
 import org.jetbrains.anko.find
 
 class ForecastListAdapter(private val weekForecast: ForecastList,
@@ -31,32 +32,18 @@ class ForecastListAdapter(private val weekForecast: ForecastList,
 
     override fun getItemCount(): Int = weekForecast.size
 
-    class ViewHolder(view: View, private val itemClick:(Forecast) -> Unit) :
-            RecyclerView.ViewHolder(view) {
-
-        private val iconView = view.find<ImageView>(R.id.icon)
-        private val dateView = view.find<TextView>(R.id.date)
-        private val descriptionView =
-                view.find<TextView>(R.id.description)
-        private val maxTemperatureView =
-                view.find<TextView>(R.id.maxTemperature)
-        private val minTemperatureView =
-                view.find<TextView>(R.id.minTemperature)
+    class ViewHolder(override val containerView: View, private val itemClick:(Forecast) -> Unit) :
+            RecyclerView.ViewHolder(containerView), LayoutContainer {
 
         fun bindForecast(forecast: Forecast) {
             with(forecast) {
-                Picasso.with(itemView.ctx).load(iconUrl).into(iconView)
-                dateView.text = date
-                descriptionView.text = description
-                maxTemperatureView.text = "$high"
-                minTemperatureView.text ="$low"
+                Picasso.with(itemView.ctx).load(iconUrl).into(icon)
+                dateText.text = date
+                descriptionText.text = description
+                maxTemperature.text = "${high}º"
+                minTemperature.text ="${low}º"
                 itemView.setOnClickListener{  itemClick(this)  }
             }
         }
     }
-    interface OnItemClickListener {
-        operator fun invoke(forecast: Forecast)
-    }
-
-
 }
