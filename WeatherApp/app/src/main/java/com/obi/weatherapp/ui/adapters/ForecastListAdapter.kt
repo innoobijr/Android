@@ -4,16 +4,13 @@ import android.support.v7.widget.RecyclerView
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.ImageView
-import android.widget.TextView
 import com.obi.weatherapp.R
 import com.obi.weatherapp.domain.model.Forecast
 import com.obi.weatherapp.domain.model.ForecastList
-import com.obi.weatherapp.ui.utils.ctx
+import com.obi.weatherapp.extensions.ctx
 import com.squareup.picasso.Picasso
 import kotlinx.android.extensions.LayoutContainer
 import kotlinx.android.synthetic.main.item_forecast.*
-import org.jetbrains.anko.find
 
 class ForecastListAdapter(private val weekForecast: ForecastList,
                           private val itemClick: (Forecast) -> Unit):

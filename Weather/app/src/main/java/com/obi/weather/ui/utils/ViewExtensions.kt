@@ -1,4 +1,4 @@
-package com.obi.weatherapp.ui.utils
+package com.obi.weather.ui.utils
 
 import android.content.Context
 import android.view.View
