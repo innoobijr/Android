@@ -6,10 +6,6 @@ import com.obi.weather.ui.utils.DelegatesExt
 
 class App :  Application() {
 
-    val database: SQLiteOpenHelper by lazy {
-        MyDatabaseHelper(applicationContext)
-    }
-
     companion object {
         var instance: App by DelegatesExt.notNullSingleValue()// property modifier
         //fun instance() = instance!!

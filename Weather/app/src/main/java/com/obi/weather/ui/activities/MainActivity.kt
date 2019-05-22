@@ -1,4 +1,4 @@
-package com.obi.weather
+package com.obi.weather.ui.activities
 
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle

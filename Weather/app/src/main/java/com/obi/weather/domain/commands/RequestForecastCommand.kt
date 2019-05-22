@@ -1,15 +1,15 @@
 package com.obi.weather.domain.commands
 
-import com.obi.weather.data.ForecastRequest
 import com.obi.weather.data.ForecastResult
-import com.obi.weather.domain.mappers.ForecastDataMapper
-import com.obi.weather.domain.model.ForecastList
+import com.obi.weather.domain.datasource.ForecastProvider
+import com.obi.weather.domain.model.Forecast
 
-class RequestForecastCommand(private val zipCode: String) :
-Command<ForecastList>{
-    override fun execute(): ForecastList {
-        val forecastRequest = ForecastRequest(zipCode)
-        return ForecastDataMapper().convertFromDataModel(
-                forecastRequest.execute())
-    }
+class RequestForecastCommand(val id: Long,
+                             private val forecastProvider: ForecastProvider = ForecastProvider())
+    : Command<Forecast>{
+
+    /*companion object {
+        const val DAYS = 7
+    }*/
+    override fun execute() = forecastProvider.requestForecast(id)
 }
