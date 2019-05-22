@@ -11,6 +11,7 @@ import com.obi.weatherapp.domain.model.Forecast
 import org.jetbrains.anko.doAsync
 import org.jetbrains.anko.toast
 import org.jetbrains.anko.uiThread
+import kotlinx.android.synthetic.main.activity_main.*
 
 class MainActivity : AppCompatActivity() {
 
@@ -27,7 +28,9 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
-        val forecastList = findViewById(R.id.forcast_list) as RecyclerView
+
+        forecastList.layoutManager = LinearLayoutManager(this)
+        /*val forecastList = findViewById(R.id.forcast_list) as RecyclerView
         forecastList.layoutManager = LinearLayoutManager(this)
         //forecastList.adapter = ForecastListAdapter(items)
 
@@ -45,7 +48,7 @@ class MainActivity : AppCompatActivity() {
                             }
                         })*/
             }
-        }
+        }*/
 
         //val f1 = Forecast(Date(), 27.5f, "Shiny day")
         //val (date, temperature, details) = f1
